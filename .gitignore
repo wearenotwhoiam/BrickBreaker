@@ -1,0 +1,95 @@
+################################################################################
+# Unreal Engine - Automatically Generated
+################################################################################
+
+# Built/Intermediate output
+Binaries/
+Intermediate/
+Saved/
+DerivedDataCache/
+
+# VS folders & generated files
+.vs/
+*.VC.db
+*.VC.VC.opendb
+*.opendb
+*.opensdf
+*.sdf
+*.ipch
+
+# PDB & OBJ files (very large debug info + object files)
+*.pdb
+*.obj
+
+# Logs and crash dumps
+*.log
+*.dmp
+
+################################################################################
+# User-specific IDE/Editor files
+################################################################################
+
+# Visual Studio
+*.suo
+*.user
+
+# Rider / JetBrains
+.idea/
+*.iml
+
+# Visual Studio Code
+.vscode/
+*.code-workspace
+
+################################################################################
+# OS-Generated Files
+################################################################################
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+################################################################################
+# Unreal Project Files
+################################################################################
+
+# Typically, you can keep .uproject and .sln if you want to share them
+# but ignoring the .sln is common if you regenerate from the .uproject.
+# Uncomment if you want to ignore the solution:
+# *.sln
+
+################################################################################
+# Other Common Temporary/Backup Files
+################################################################################
+
+*.tmp
+*.bak
+*.old
+*.swp
+*.env
+*.screenflow
+
+################################################################################
+# Plugins (optional)
+################################################################################
+
+# If you have custom or third-party plugins, you may want to exclude their
+# compiled binaries/intermediate as well:
+Plugins/*/Binaries/
+Plugins/*/Intermediate/
+
+################################################################################
+# Notes
+################################################################################
+# - Make sure this file is committed BEFORE you add large auto-generated files.
+# - If large folders have already been committed, you must remove them from your
+#   history (e.g., using "git filter-repo" or BFG) and then push again.
+# - For large binary assets that *must* be tracked, consider Git LFS:
+#   https://git-lfs.github.com
