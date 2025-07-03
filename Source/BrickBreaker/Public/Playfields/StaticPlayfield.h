@@ -22,25 +22,52 @@ public:
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-
+	virtual void OnConstruction(const FTransform& Transform) override;
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
 private:
+	void SetupPlayfield();
+	void SetupWalls();
+	UFUNCTION(BlueprintCallable)
+	void UpdatePlayfield();
+
 
 #pragma region Components
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
+	UCameraComponent* StaticCamera;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
 	USpringArmComponent* CameraBoom;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Camera", meta = (AllowPrivateAccess = "true"))
-	UCameraComponent* StaticCamera;
+#pragma region PlayfieldComponents
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* FloorMeshComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UStaticMesh* FloorBaseMesh{ NULL };
+	
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UStaticMesh* WallBaseMesh{ NULL };
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
-	UStaticMeshComponent* BaseMesh{ NULL };
-
+	UStaticMeshComponent* LeftWallComp;
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
-	UBoxComponent* BoxComp{ NULL };
+	UStaticMeshComponent* RightWallComp;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UStaticMeshComponent* TopWallComp;
+#pragma endregion
+
+#pragma endregion
+
+#pragma region Dimensions
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayfieldDimensions", meta = (AllowPrivateAccess = "true"))
+float FloorWidth{ 50.0f };
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayfieldDimensions", meta = (AllowPrivateAccess = "true"))
+float FloorHeight{ 100.0f };
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayfieldDimensions", meta = (AllowPrivateAccess = "true"))
+float BaseWallHeight{ 50.f };
+UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "PlayfieldDimensions", meta = (AllowPrivateAccess = "true"))
+float BaseWallThickness{ 10.f };
 #pragma endregion
 
 };
